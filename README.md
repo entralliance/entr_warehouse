@@ -1,5 +1,10 @@
 Welcome to the ENTR Data Warehouse template
 
+## Create your dbt creds to gcloud
+
+In your ~/.dbt directory: 
+ln -s [json key file] dbt-user-creds.json
+
 ### Using the starter project
 
 Try running the following commands:
