@@ -1,0 +1,26 @@
+entr_warehouse:
+  outputs:
+
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: ~/.dbt/dbt-user-creds.json # replace this with the full path to your keyfile
+      project: [google cloud platform project] # Replace this with your project id
+      dataset: [bigquery dataset] # Replace this with dbt_your_name, e.g. dbt_bob
+      threads: 1
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+
+    # prod:
+    #   type: redshift
+    #   method: iam
+    #   cluster_id: [cluster_id]
+    #   threads: [1 or more]
+    #   host: [host]
+    #   port: [port]
+    #   user: [prod_user]
+    #   dbname: [dbname]
+    #   schema: [prod_schema]
+
+  target: dev

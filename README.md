@@ -1,4 +1,4 @@
-Welcome to your new dbt project!
+Welcome to the ENTR Data Warehouse template
 
 ### Using the starter project
 
