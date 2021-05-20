@@ -1,4 +1,5 @@
 entr_warehouse:
+
   outputs:
 
     dev:
@@ -11,6 +12,7 @@ entr_warehouse:
       timeout_seconds: 300
       location: US
       priority: interactive
+
 
     # prod:
     #   type: redshift

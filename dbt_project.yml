@@ -36,3 +36,36 @@ models:
       # Applies to all files under models/iec_61400_25/
       iec_61400_25:
           materialized: table
+
+seeds:
+  entr_warehouse:
+    la_haute_borne_data_sample:
+      +column_types:
+        Wind_turbine_name: string
+        Date_time: string
+        Ba_avg: string
+        P_avg:  string
+        Ws_avg: string
+        Va_avg: string
+        Ot_avg: string
+        Ya_avg: string
+        Wa_avg: string
+    la_haute_tag_mapping:
+      +column_types:
+        tag_name: string
+        tag_is_new: string
+        variable_name: string
+        variable_long_name: string
+        unit_long_name: string
+        comment: string
+    entr_tag_list:
+      +column_types:
+        entr_tag_id: integer
+        entr_tag_name: string
+        logical_node: string
+        sensor_name: string
+        presentation_name: string
+        si_unit: string
+        value_type: string
+        data_type: string
+        collector_type: string

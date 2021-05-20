@@ -6,6 +6,12 @@ Try running the following commands:
 - dbt run
 - dbt test
 
+To seed the sample data from the data directory: 
+- dbt seed
+
+To install dbt deps; 
+- dbt deps
+
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
