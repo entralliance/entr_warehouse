@@ -16,7 +16,7 @@ tag_join as (
         map.tag_name as entr_tag_name,
         la_haute_molten.*
     from la_haute_molten
-    left join map on split(lower(la_haute_molten.scada_tag_name),"_")[ordinal(1)] = lower(map.variable_name)
+    left join map on split(lower(la_haute_molten.scada_tag_name),"_")[0] = lower(map.variable_name)
 )
 
 select * from tag_join

@@ -1,5 +1,5 @@
 select
-    CAST(entr_tag_id as int64) as entr_tag_id ,
+    CAST(entr_tag_id as integer) as entr_tag_id ,
     CAST(entr_tag_name as string) as entr_tag_name,
     CAST(logical_node as string) as logical_node,
     CAST(sensor_name as  string) as sensor_name,
