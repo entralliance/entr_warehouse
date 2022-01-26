@@ -2,6 +2,7 @@ dbt_modules
 logs
 target
 .user.yml
+*.bak
 
 # ---- from dbt's .gitignore ----
 # Byte-compiled / optimized / DLL files
