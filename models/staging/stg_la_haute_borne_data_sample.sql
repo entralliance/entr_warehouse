@@ -1,7 +1,6 @@
 select
     CAST(Wind_turbine_name as string) as wind_turbine_name,
-    --PARSE_DATETIME('%Y-%m-%dT%H:%M:%S+zzz', REPLACE(Date_time, 'T',' ')) as date_time,
-    CAST(Date_time as string) as date_time,
+    date(Date_time) as date_time, -- spark sql dialect
     CAST(Ba_avg as numeric) as ba_avg,
     CAST(P_avg  as numeric) as p_avg,
     CAST(Ws_avg as numeric) as ws_avg,

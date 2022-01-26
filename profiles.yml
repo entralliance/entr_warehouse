@@ -1,16 +1,9 @@
-entr_warehouse:
-
-  outputs:
-
-    dev:
-      type: bigquery
-      method: service-account
-      keyfile: dbt-gcloud-creds.json # set up this file so you can access gcloud
-      project: entrhub
-      dataset: entr_warehouse
-      threads: 1
-      timeout_seconds: 300
-      location: US
-      priority: interactive
-
-  target: dev
+entr_warehouse:   
+  target: dev   
+  outputs:     
+    dev:       
+      type: spark
+      method: thrift       
+      schema: entr_warehouse       
+      host: 127.0.0.1       
+      port: 10000

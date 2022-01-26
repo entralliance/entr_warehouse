@@ -9,7 +9,7 @@ WITH keyedSource as (
 )
 SELECT
     MAX (wind_turbine_name) as Wind_turbine_name,
-    CAST(MAX(date_time) as Timestamp) as Date_time,
+    MAX(to_timestamp(date_time, "yyyy-MM-dd'T'HH:mm:ssXXX")) as Date_time,
     CAST(MAX(IF(entr_tag_name = "WTUR.W", tag_value, NULL)) as Numeric) AS P_avg, -- wtur_W_avg
     CAST(MAX(IF(entr_tag_name = "WTUR.W", tag_value, NULL)) as Numeric) AS Power_W, -- wtur_W_avg
     CAST(MAX(IF(entr_tag_name = "WMET.HorWdSpd", tag_value, NULL)) as Numeric) AS Ws_avg, -- wmet_wdspd_avg
