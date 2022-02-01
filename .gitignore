@@ -1,6 +1,6 @@
-dbt_modules
-logs
-target
+dbt_packages/
+target/
+logs/
 .user.yml
 *.bak
 
@@ -69,9 +69,6 @@ test.env
 
 # Sphinx documentation
 docs/_build/
-
-# PyBuilder
-target/
 
 #Ipython Notebook
 .ipynb_checkpoints
