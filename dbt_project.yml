@@ -9,6 +9,14 @@ config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'entr_warehouse'
 
+# for implementation of spark_utils package 
+# NOTE: this should not be included when packaged! see https://github.com/dbt-labs/spark-utils#compatibility
+dispatch:
+    - macro_namespace: dbt_utils
+      search_order: ['spark_utils', 'dbt_utils']
+
+vars:
+    'dbt_date:time_zone': 'Etc/UTC'
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -33,9 +41,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   entr_warehouse:
-      # Applies to all files under models/iec_61400_25/
-      iec_61400_25:
-          materialized: table
+    +materialized: view
 
 seeds:
   entr_warehouse:
