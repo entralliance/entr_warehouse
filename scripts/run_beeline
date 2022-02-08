@@ -1,0 +1,3 @@
+#! /usr/local/spark/bin/beeline
+# doesn't currently work when calling as a script - copy/paste below after running `beeline` in terminal
+!connect jdbc:hive2://localhost:10000/entr_warehouse -n -p
