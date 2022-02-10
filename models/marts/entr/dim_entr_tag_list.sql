@@ -13,4 +13,4 @@ select
     CAST(data_type as {{dbt_utils.type_string()}}) as data_type,
     CAST(collector_type as {{dbt_utils.type_string()}}) as collector_type
 from
-    {{ref('entr_tag_list')}}
+    {{ref('seed_entr_tag_list')}}

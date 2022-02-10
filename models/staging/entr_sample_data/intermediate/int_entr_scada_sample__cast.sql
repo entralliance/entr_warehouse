@@ -16,4 +16,4 @@ select
     CAST(Wa_avg as {{dbt_utils.type_numeric()}}) as wa_avg
 
 from
-    {{ref('la_haute_borne_data_sample')}}
+    {{ref('seed_la_haute_borne_data_sample')}}

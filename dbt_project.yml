@@ -46,7 +46,7 @@ models:
 
 seeds:
   entr_warehouse:
-    la_haute_borne_data_sample:
+    seed_la_haute_borne_data_sample:
       +column_types:
         Wind_turbine_name: string
         Date_time: string
@@ -57,7 +57,7 @@ seeds:
         Ot_avg: string
         Ya_avg: string
         Wa_avg: string
-    la_haute_tag_mapping:
+    seed_la_haute_borne_scada_tag_map:
       +column_types:
         tag_name: string
         tag_is_new: string
@@ -65,7 +65,7 @@ seeds:
         variable_long_name: string
         unit_long_name: string
         comment: string
-    entr_tag_list:
+    seed_entr_tag_list:
       +column_types:
         entr_tag_id: integer
         entr_tag_name: string

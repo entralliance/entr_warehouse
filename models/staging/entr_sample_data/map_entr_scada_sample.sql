@@ -3,7 +3,7 @@
 }}
 
 with
-    src as (select * from {{ref('la_haute_tag_mapping')}})
+    src as (select * from {{ref('seed_la_haute_borne_scada_tag_map')}})
 
 select
     CAST(tag_name as {{dbt_utils.type_string()}}) as tag_name,
