@@ -1,6 +1,6 @@
 version: 2
 
-models:
+seeds:
   - name: seed_entr_tag_list
     description: IEC 61400-25-compliant ENTR standard wind turbine SCADA tags
 
