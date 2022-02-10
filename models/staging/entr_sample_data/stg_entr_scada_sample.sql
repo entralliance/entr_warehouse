@@ -3,7 +3,7 @@
         - tie in turbine dimension
 #}
 
-{% set src_model = 'int_entr_scada_sample' %}
+{% set src_model = 'int_entr_scada_sample__cast' %}
 
 with
     src as (select * from {{ref(src_model)}}),
