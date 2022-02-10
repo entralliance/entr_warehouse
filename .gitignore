@@ -4,6 +4,9 @@ logs/
 .user.yml
 *.bak
 
+# IDE-specifig settings
+.vscode/
+
 # ---- from dbt's .gitignore ----
 # Byte-compiled / optimized / DLL files
 __pycache__/
