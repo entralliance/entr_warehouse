@@ -23,7 +23,7 @@ vars:
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["data"]
+seed-paths: ["seed"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
