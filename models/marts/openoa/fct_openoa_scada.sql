@@ -4,7 +4,7 @@
 
 WITH keyedSource as (
     SELECT concat(wind_turbine_name, "_", date_time) as key, *
-    FROM {{ref('entr_data_standardized')}}
+    FROM {{ref('dqc_entr_scada_sample')}}
 --     FROM `entrhub.entr_warehouse.entr_data_standardized`
 )
 SELECT
