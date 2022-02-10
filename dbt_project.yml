@@ -23,7 +23,7 @@ vars:
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seed"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -41,7 +41,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   entr_warehouse:
-    +materialized: view
+    marts:
+      +materialized: view
 
 seeds:
   entr_warehouse:
