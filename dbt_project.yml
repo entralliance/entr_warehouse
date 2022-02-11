@@ -78,7 +78,7 @@ seeds:
           data_type: string
           collector_type: string
       seed_merra2_la_haute_borne_sample:
-        +enabled: false
+        +enabled: true
         +column_types:
           datetime: string
           surface_pressure: string
@@ -95,7 +95,7 @@ seeds:
           ws_50m: string
           dens_50m: string
       seed_era5_wind_la_haute_borne_sample:
-        +enabled: false
+        +enabled: true
         +column_types:
           datetime: string
           u_100: string
