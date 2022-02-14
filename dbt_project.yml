@@ -104,7 +104,7 @@ seeds:
           surf_pres: string
           ws_100m: string
           dens_100m: string
-      seed_plant_data:
+      seed_plant_data_sample:
         +enabled: true
         +column_types:
           time_utc: string
