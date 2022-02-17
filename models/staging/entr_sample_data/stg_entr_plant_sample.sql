@@ -16,14 +16,19 @@ src_molten as (
             ref(src_model),
             cast_to='numeric',
             exclude=['plant_name','date_time'],
-            field_name='scada_tag_name',
+            field_name='plant_tag_name',
             value_name='tag_value'
         )
     }}
 )
 
 select
-    map.tag_name as entr_tag_name,
-    src_molten.*
+    src_molten.plant_name,
+    std_tags.entr_tag_id,
+    {# map.tag_name as entr_tag_name, #}
+    src_molten.date_time,
+    src_molten.plant_tag_name,
+    src_molten.tag_value
 from src_molten
-left join map on split(lower(src_molten.scada_tag_name),"_")[0] = lower(map.variable_name)
+left join map on lower(src_molten.plant_tag_name) = lower(map.variable_name)
+left join std_tags on lower(map.tag_name) = lower (std_tags.entr_tag_name)
