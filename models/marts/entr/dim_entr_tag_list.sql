@@ -3,14 +3,14 @@
 }}
 
 select
-    CAST(entr_tag_id as {{dbt_utils.type_int()}}) as entr_tag_id,
-    CAST(entr_tag_name as {{dbt_utils.type_string()}}) as entr_tag_name,
-    CAST(logical_node as {{dbt_utils.type_string()}}) as logical_node,
-    CAST(sensor_name as {{dbt_utils.type_string()}}) as sensor_name,
-    CAST(presentation_name as {{dbt_utils.type_string()}}) as presentation_name,
-    CAST(si_unit as {{dbt_utils.type_string()}}) as si_unit,
-    CAST(value_type as {{dbt_utils.type_string()}}) as value_type,
-    CAST(data_type as {{dbt_utils.type_string()}}) as data_type,
-    CAST(collector_type as {{dbt_utils.type_string()}}) as collector_type
+    cast(entr_tag_id as {{dbt_utils.type_int()}}) as entr_tag_id,
+    cast(entr_tag_name as {{dbt_utils.type_string()}}) as entr_tag_name,
+    cast(logical_node as {{dbt_utils.type_string()}}) as logical_node,
+    cast(sensor_name as {{dbt_utils.type_string()}}) as sensor_name,
+    cast(presentation_name as {{dbt_utils.type_string()}}) as presentation_name,
+    cast(si_unit as {{dbt_utils.type_string()}}) as si_unit,
+    cast(value_type as {{dbt_utils.type_string()}}) as value_type,
+    cast(data_type as {{dbt_utils.type_string()}}) as data_type,
+    cast(collector_type as {{dbt_utils.type_string()}}) as collector_type
 from
     {{ref('seed_entr_tag_list')}}
