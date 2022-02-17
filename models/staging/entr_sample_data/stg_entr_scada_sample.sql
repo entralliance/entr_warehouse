@@ -16,7 +16,7 @@ src_molten as (
         dbt_utils.unpivot(
             ref(src_model),
             cast_to='numeric',
-            exclude=['wind_turbine_name','date_time'],
+            exclude=['wind_turbine_name','date_time', 'interval_n', 'interval_unit'],
             field_name='scada_tag_name',
             value_name='tag_value'
         )
@@ -30,7 +30,9 @@ select
     {# std_tags.entr_tag_name, #}
     src_molten.date_time,
     src_molten.scada_tag_name,
-    src_molten.tag_value
+    src_molten.tag_value,
+    interval_n,
+    interval_unit
 from src_molten
 left join map on lower(src_molten.scada_tag_name) = lower(map.variable_name)
 left join std_tags on lower(map.tag_name) = lower (std_tags.entr_tag_name)
