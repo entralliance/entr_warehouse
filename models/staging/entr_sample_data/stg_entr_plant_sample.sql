@@ -1,8 +1,3 @@
-{# 
-    TODO:
-        - tie in plant dimension
-#}
-
 {% set src_model = 'int_entr_plant_sample__cast' %}
 
 with
