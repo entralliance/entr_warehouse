@@ -1,0 +1,21 @@
+version: 2
+
+models:
+
+  - name: stg_entr_plant_sample
+    description: staging model for the sample La Haute Borne plant-level data from ENTR
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - plant_id
+            - entr_tag_id
+            - date_time
+
+  - name: stg_entr_scada_sample
+    description: staging model for the sample La Haute Borne wind turbine SCADA data from ENTR
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - wind_turbine_id
+            - entr_tag_id
+            - date_time
