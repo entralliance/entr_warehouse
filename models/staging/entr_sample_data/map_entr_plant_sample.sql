@@ -1,7 +1,3 @@
-{{
-    config(materialized='table')
-}}
-
 with
     src as (select * from {{ref('seed_plant_data_tag_map')}})
 

@@ -1,7 +1,3 @@
-{{
-    config(materialized='table')
-}}
-
 with
     src as (select * from {{ref('seed_la_haute_borne_scada_tag_map')}})
 
