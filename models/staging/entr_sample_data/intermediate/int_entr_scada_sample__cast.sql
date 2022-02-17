@@ -16,7 +16,5 @@ select
     cast(va_avg as {{dbt_utils.type_numeric()}}) as va_avg,
     cast(ot_avg as {{dbt_utils.type_numeric()}}) as ot_avg,
     cast(ya_avg as {{dbt_utils.type_numeric()}}) as ya_avg,
-    cast(wa_avg as {{dbt_utils.type_numeric()}}) as wa_avg,
-    cast(10 as {{dbt_utils.type_numeric()}}) as interval_n,
-    'minute' as interval_unit
+    cast(wa_avg as {{dbt_utils.type_numeric()}}) as wa_avg
 from src
