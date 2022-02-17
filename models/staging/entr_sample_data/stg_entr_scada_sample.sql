@@ -24,7 +24,7 @@ select
     std_tags.entr_tag_id,
     {# std_tags.entr_tag_name, #}
     src_molten.date_time,
-    src_molten.scada_tag_name,
+    {# src_molten.scada_tag_name, #}
     src_molten.tag_value,
     interval_n,
     interval_unit
