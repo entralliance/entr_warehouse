@@ -12,7 +12,5 @@ select
     {{dbt_date.convert_timezone('cast(time_utc as ' ~ dbt_utils.type_timestamp() ~ ')', 'UTC')}} as date_time,
     cast(net_energy_kwh as {{dbt_utils.type_numeric()}}) as net_energy_kwh,
     cast(availability_kwh as {{dbt_utils.type_numeric()}}) as availability_kwh,
-    cast(curtailment_kwh as {{dbt_utils.type_numeric()}}) as curtailment_kwh,
-    cast(10 as {{dbt_utils.type_numeric()}}) as interval_n,
-    'minute' as interval_unit
+    cast(curtailment_kwh as {{dbt_utils.type_numeric()}}) as curtailment_kwh
 from src
