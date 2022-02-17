@@ -10,6 +10,14 @@ models:
             - plant_id
             - entr_tag_id
             - date_time
+    columns:
+      - name: interval_n
+        description: count of interval
+        tests:
+          - not_null
+          - accepted_values:
+              values: [10]
+              quote: false
 
   - name: stg_entr_scada_sample
     description: staging model for the sample La Haute Borne wind turbine SCADA data from ENTR
