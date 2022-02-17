@@ -3,6 +3,7 @@
 }}
 
 select
+    cast(plant_id as {{dbt_utils.type_int()}}) as plant_id,
     cast(wind_turbine_id as {{dbt_utils.type_int()}}) as wind_turbine_id,
     cast(wind_turbine_name as {{dbt_utils.type_string()}}) as wind_turbine_name,
     cast(latitude as {{dbt_utils.type_numeric()}}) as latitude,
