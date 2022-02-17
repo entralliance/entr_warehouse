@@ -1,0 +1,4 @@
+tag_name,variable_name
+MMTR.SupWh,net_energy_kwh
+IAVL.DnWh,availability_kwh
+IAVL.ExtPwrDnWh,curtailment_kwh
