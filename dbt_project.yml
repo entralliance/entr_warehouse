@@ -9,13 +9,21 @@ config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'entr_warehouse'
 
+# for implementation of spark_utils package 
+# NOTE: this should not be included when packaged! see https://github.com/dbt-labs/spark-utils#compatibility
+dispatch:
+    - macro_namespace: dbt_utils
+      search_order: ['spark_utils', 'dbt_utils']
+
+vars:
+    'dbt_date:time_zone': 'Etc/UTC'
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -33,39 +41,75 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   entr_warehouse:
-      # Applies to all files under models/iec_61400_25/
-      iec_61400_25:
-          materialized: table
+    marts:
+      +materialized: view
 
 seeds:
   entr_warehouse:
-    la_haute_borne_data_sample:
-      +column_types:
-        Wind_turbine_name: string
-        Date_time: string
-        Ba_avg: string
-        P_avg:  string
-        Ws_avg: string
-        Va_avg: string
-        Ot_avg: string
-        Ya_avg: string
-        Wa_avg: string
-    la_haute_tag_mapping:
-      +column_types:
-        tag_name: string
-        tag_is_new: string
-        variable_name: string
-        variable_long_name: string
-        unit_long_name: string
-        comment: string
-    entr_tag_list:
-      +column_types:
-        entr_tag_id: integer
-        entr_tag_name: string
-        logical_node: string
-        sensor_name: string
-        presentation_name: string
-        si_unit: string
-        value_type: string
-        data_type: string
-        collector_type: string
+    openoa_example_data:
+      seed_la_haute_borne_data_sample:
+        +column_types:
+          Wind_turbine_name: string
+          Date_time: string
+          Ba_avg: string
+          P_avg:  string
+          Ws_avg: string
+          Va_avg: string
+          Ot_avg: string
+          Ya_avg: string
+          Wa_avg: string
+      seed_la_haute_borne_scada_tag_map:
+        +column_types:
+          tag_name: string
+          tag_is_new: string
+          variable_name: string
+          variable_long_name: string
+          unit_long_name: string
+          comment: string
+      seed_entr_tag_list:
+        +column_types:
+          entr_tag_id: integer
+          entr_tag_name: string
+          logical_node: string
+          sensor_name: string
+          presentation_name: string
+          si_unit: string
+          value_type: string
+          data_type: string
+          collector_type: string
+      seed_merra2_la_haute_borne_sample:
+        +enabled: true
+        +column_types:
+          datetime: string
+          surface_pressure: string
+          surface_skin_temperature: string
+          u_10: string
+          v_10: string
+          u_50: string
+          v_50: string
+          temp_2m: string
+          temp_10m: string
+          u_850: string
+          v_850: string
+          temp_850: string
+          ws_50m: string
+          dens_50m: string
+      seed_era5_wind_la_haute_borne_sample:
+        +enabled: true
+        +column_types:
+          datetime: string
+          u_100: string
+          v_100: string
+          t_2m: string
+          surf_pres: string
+          ws_100m: string
+          dens_100m: string
+      seed_plant_data_sample:
+        +enabled: true
+        +column_types:
+          time_utc: string
+          net_energy_kwh: string
+          availability_kwh: string
+          curtailment_kwh: string
+      seed_la_haute_borne_asset_table:
+        +enabled: true
