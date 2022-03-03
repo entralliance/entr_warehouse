@@ -1,5 +1,5 @@
 with
-    src as (select * from {{ ref('dim_asset_plant') }})
+    src as (select * from {{ ref('dim_asset_wind_plant') }})
 
 select
     plant_id,

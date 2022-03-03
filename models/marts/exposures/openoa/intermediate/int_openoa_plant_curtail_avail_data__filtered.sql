@@ -1,6 +1,6 @@
 with
     src as (select * from {{ ref('fct_entr_plant_data') }}),
-    plant_dim as (select * from {{ ref('dim_asset_plant') }}),
+    plant_dim as (select * from {{ ref('dim_asset_wind_plant') }}),
     tag_dim as (select * from {{ ref('dim_entr_tag_list') }})
 
 select

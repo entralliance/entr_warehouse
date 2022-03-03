@@ -69,7 +69,7 @@ In the words of dbt maintainers: "The goal of the staging layer is to create sta
 What happens to sources in the staging layer:
 * type casting, e.g. converting timestamp strings to timestamp type
 * column renaming
-* dimensional foreign key tie-in, e.g. adding `plant_id` linking records containing plant-level data to the plant dimension (`dim_asset_plant`)
+* dimensional foreign key tie-in, e.g. adding `plant_id` linking records containing plant-level data to the plant dimension (`dim_asset_wind_plant`)
     * we generally recommend stripping out metadata that can be found within a dimension once that dimension's foreign key is added to a staging model, e.g. if a `plant_id` is tied into the staging model, remove `plant_name` from that staging model
 * implementing *globally-applicable* data quality control (data scrubbing) methods, e.g. adding logic to remove absolute wind direction records that aren't between 0 and 360 degrees
 * reshaping data to commonly used table schema
