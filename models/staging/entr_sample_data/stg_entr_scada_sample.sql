@@ -29,7 +29,8 @@ select
     map.interval_n,
     map.interval_units,
     map.value_type,
-    map.value_units
+    map.value_units,
+    tag_dim.standard_units
 from src_molten
 left join map on lower(src_molten.scada_tag_name) = lower(map.source_tag_name)
 left join tag_dim using(entr_tag_name)

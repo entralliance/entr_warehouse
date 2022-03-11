@@ -1,4 +1,4 @@
-entr_tag_id,entr_tag_name,logical_node,sensor_name,presentation_name,si_unit,value_type,data_type,collector_type
+entr_tag_id,entr_tag_name,logical_node,sensor_name,presentation_name,standard_units,value_type,data_type,collector_type
 1,CONN.ConSt,CONN.,ConSt,Provider connection state,Enum,Live Value,Long,Live Value
 2,SERVER.DmdWSpt,SERVER.,DmdWSpt,Overall Active power setpoint,W,Live Value,Double,Live Value
 3,SERVER.HddSpaceAvl,SERVER.,HddSpaceAvl,Free disk space on HD drive ,Byte,Live Value,Double,Live Value
