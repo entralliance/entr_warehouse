@@ -34,17 +34,9 @@ energy_union as (
 select
     plant_id,
     plant_dim.plant_name,
-    wind_turbine_id,
     wtg_dim.wind_turbine_name,
-    entr_tag_id,
     tag_dim.entr_tag_name,
-    energy_union.date_time,
-    energy_union.tag_value,
-    energy_union.interval_n,
-    energy_union.interval_units,
-    energy_union.value_type,
-    energy_union.value_units,
-    energy_union.standard_units
+    energy_union.*
 from energy_union
 left join wtg_dim using(wind_turbine_id)
 left join plant_dim using(plant_id)
