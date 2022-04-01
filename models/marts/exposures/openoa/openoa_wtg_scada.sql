@@ -12,6 +12,9 @@ with
     src as (select * from {{ ref(src_model) }})
 
 select
+    plant_id,
+    plant_name,
+    wind_turbine_id,
     wind_turbine_name,
     date_time,
     {{  
@@ -24,7 +27,7 @@ select
             quote_identifiers = true) 
     }}
 from src
-{{ dbt_utils.group_by(n=2) }}
+{{ dbt_utils.group_by(n=5) }}
 
 {#
 
