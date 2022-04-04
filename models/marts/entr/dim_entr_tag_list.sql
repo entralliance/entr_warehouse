@@ -8,7 +8,7 @@ select
     cast(logical_node as {{dbt_utils.type_string()}}) as logical_node,
     cast(sensor_name as {{dbt_utils.type_string()}}) as sensor_name,
     cast(presentation_name as {{dbt_utils.type_string()}}) as presentation_name,
-    cast(si_unit as {{dbt_utils.type_string()}}) as si_unit,
+    cast(standard_units as {{dbt_utils.type_string()}}) as standard_units,
     cast(value_type as {{dbt_utils.type_string()}}) as value_type,
     cast(data_type as {{dbt_utils.type_string()}}) as data_type,
     cast(collector_type as {{dbt_utils.type_string()}}) as collector_type

@@ -4,7 +4,7 @@ with
     src as (select * from {{ref(src_model)}}),
     map as (select * from {{ref('map_entr_plant_sample')}}),
     tag_dim as (select * from {{ref('dim_entr_tag_list')}}),
-    asset_dim as (select * from {{ref('dim_asset_plant')}}),
+    asset_dim as (select * from {{ref('dim_asset_wind_plant')}}),
 
 src_molten as (
     {{

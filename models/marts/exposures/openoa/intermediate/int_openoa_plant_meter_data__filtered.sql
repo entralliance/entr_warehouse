@@ -1,6 +1,6 @@
 with
     src as (select * from {{ ref('fct_entr_plant_data') }}),
-    plant_dim as (select * from {{ ref('dim_asset_plant') }}),
+    plant_dim as (select * from {{ ref('dim_asset_wind_plant') }}),
     tag_dim as (select * from {{ ref('dim_entr_tag_list') }})
 
 select
@@ -10,4 +10,4 @@ select
 from src
 left join plant_dim using(plant_id)
 left join tag_dim using(entr_tag_id)
-where entr_tag_id in (2553, 2555)
+where entr_tag_id = 2554
