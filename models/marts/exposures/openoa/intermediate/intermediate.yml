@@ -1,0 +1,42 @@
+version: 2
+
+models:
+
+  - name: int_openoa_plant_curtail_avail_data__filtered
+    description: filters out only the curtailment and availability tags required by OpenOA from the generic ENTR plant data table to allow a pivot to be applied
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - plant_id
+            - entr_tag_id
+            - date_time
+      - accepted_values:
+          column_name: "(round(interval_n) || '-' || interval_units)"
+          values: ['10-minute']
+          quote: true
+
+  - name: int_openoa_plant_meter_data__filtered
+    description: filters out only the meter tags required by OpenOA from the generic ENTR plant data table to allow a pivot to be applied
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - plant_id
+            - entr_tag_id
+            - date_time
+      - accepted_values:
+          column_name: "(round(interval_n) || '-' || interval_units)"
+          values: ['10-minute']
+          quote: true
+
+  - name: int_openoa_wtg_scada__filtered
+    description: filters out only the tags required by OpenOA from the generic ENTR turbine SCADA data table to allow a pivot to be applied
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - wind_turbine_id
+            - entr_tag_id
+            - date_time
+      - accepted_values:
+          column_name: "(round(interval_n) || '-' || interval_units)"
+          values: ['10-minute']
+          quote: true
