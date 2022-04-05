@@ -78,33 +78,28 @@ seeds:
           value_type: string
           data_type: string
           collector_type: string
-      seed_merra2_la_haute_borne_sample:
+      seed_la_haute_borne_merra2_sample:
         +enabled: true
         +column_types:
           datetime: string
-          surface_pressure: string
-          surface_skin_temperature: string
-          u_10: string
-          v_10: string
-          u_50: string
-          v_50: string
-          temp_2m: string
-          temp_10m: string
-          u_850: string
-          v_850: string
-          temp_850: string
-          ws_50m: string
-          dens_50m: string
-      seed_era5_wind_la_haute_borne_sample:
+          u_ms: string
+          v_ms: string
+          temperature_K: string
+          surf_pres_Pa: string
+          windspeed_ms: string
+          winddirection_deg: string
+          rho_kgm3: string
+      seed_la_haute_borne_era5_sample:
         +enabled: true
         +column_types:
           datetime: string
-          u_100: string
-          v_100: string
-          t_2m: string
-          surf_pres: string
-          ws_100m: string
-          dens_100m: string
+          u_ms: string
+          v_ms: string
+          temperature_K: string
+          surf_pres_Pa: string
+          windspeed_ms: string
+          winddirection_deg: string
+          rho_kgm3: string
       seed_plant_data_sample:
         +enabled: true
         +column_types:
