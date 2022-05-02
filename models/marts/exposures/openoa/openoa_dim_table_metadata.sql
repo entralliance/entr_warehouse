@@ -16,7 +16,7 @@
 } %}
 
 {% set reanalysis_model = {
-    'model_name': ref('openoa_reanalysis'),
+    'model_name': ref('int_openoa_reanalysis_data__filtered'),
     'openoa_alias': 'reanalysis',
 } %}
 
