@@ -1,0 +1,8 @@
+﻿entr_tag_name,source_tag_name,interval_n,interval_units,value_type,value_units
+WMETR.HorWdSpdU,u_ms,1,hour,average,m/s
+WMETR.HorWdSpdV,v_ms,1,hour,average,m/s
+WMETR.EnvTmp,temperature_K,1,hour,average,K
+WMETR.EnvPres,surf_pres_Pa,1,hour,average,Pa
+WMETR.HorWdSpd,windspeed_ms,1,hour,average,m/s
+WMETR.HorWdDir,winddirection_deg,1,hour,average,deg
+WMETR.AirDen,rho_kgm3,1,hour,average,kg/m³
