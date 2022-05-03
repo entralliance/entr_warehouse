@@ -15,7 +15,12 @@
     'openoa_alias': 'scada',
 } %}
 
-{% set models = [avail_model, meter_model, scada_model] %}
+{% set reanalysis_model = {
+    'model_name': ref('int_openoa_reanalysis_data__filtered'),
+    'openoa_alias': 'reanalysis',
+} %}
+
+{% set models = [avail_model, meter_model, scada_model, reanalysis_model] %}
 
 {% for mdl in models %}
 
