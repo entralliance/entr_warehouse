@@ -49,6 +49,7 @@ seeds:
   entr_warehouse:
     openoa_example_data:
       seed_la_haute_borne_data_sample:
+        +enabled: false
         +column_types:
           Wind_turbine_name: string
           Date_time: string
@@ -79,7 +80,7 @@ seeds:
           data_type: string
           collector_type: string
       seed_la_haute_borne_merra2_sample:
-        +enabled: true
+        +enabled: false
         +column_types:
           datetime: string
           u_ms: string
@@ -90,7 +91,7 @@ seeds:
           winddirection_deg: string
           rho_kgm3: string
       seed_la_haute_borne_era5_sample:
-        +enabled: true
+        +enabled: false
         +column_types:
           datetime: string
           u_ms: string
@@ -101,7 +102,7 @@ seeds:
           winddirection_deg: string
           rho_kgm3: string
       seed_plant_data_sample:
-        +enabled: true
+        +enabled: false
         +column_types:
           time_utc: string
           net_energy_kwh: string

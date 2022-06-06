@@ -1,5 +1,16 @@
-with
-    src as (select * from {{ ref('seed_la_haute_borne_data_sample') }})
+{{
+    config(
+        materialized='table',
+        pre_hook="
+            create temp view tmp_entr_la_scada_sample__read
+            using csv
+            options (
+                path 'warehouse/seeds/openoa_example_data/seed_la_haute_borne_data_sample.csv',
+                header 'true'
+            )
+        "
+    )
+}}
 
 select
     cast(wind_turbine_name as {{dbt_utils.type_string()}}) as wind_turbine_name,
@@ -17,4 +28,4 @@ select
     cast(ot_avg as {{dbt_utils.type_numeric()}}) as ot_avg,
     cast(ya_avg as {{dbt_utils.type_numeric()}}) as ya_avg,
     cast(wa_avg as {{dbt_utils.type_numeric()}}) as wa_avg
-from src
+from tmp_entr_la_scada_sample__read
