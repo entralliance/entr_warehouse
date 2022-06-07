@@ -5,7 +5,7 @@
             create temp view tmp_entr_era5_sample__read
             using csv
             options (
-                path 'warehouse/seeds/openoa_example_data/seed_la_haute_borne_era5_sample.csv',
+                path '" ~ '{{env_var("DBT_PROJECT_PATH", "warehouse")}}' ~ "/seeds/openoa_example_data/seed_la_haute_borne_era5_sample.csv',
                 header 'true'
             )
         "

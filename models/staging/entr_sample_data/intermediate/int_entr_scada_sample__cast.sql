@@ -5,7 +5,7 @@
             create temp view tmp_entr_la_scada_sample__read
             using csv
             options (
-                path 'warehouse/seeds/openoa_example_data/seed_la_haute_borne_data_sample.csv',
+                path '" ~ '{{env_var("DBT_PROJECT_PATH", "warehouse")}}' ~ "/seeds/openoa_example_data/seed_la_haute_borne_data_sample.csv',
                 header 'true'
             )
         "
