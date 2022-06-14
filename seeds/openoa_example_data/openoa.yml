@@ -5,19 +5,19 @@ seeds:
     description: IEC 61400-25-compliant ENTR standard wind turbine SCADA tags
 
   - name: seed_la_haute_borne_era5_sample
-    description: a subset of ERA5 reanalysis data set from the OpenOA example data
+    description: sample ERA5 reanalysis data set from the OpenOA La Haute Borne examples
 
   - name: seed_la_haute_borne_asset_table
-    description: metadata about the turbine assets in the sample SCADA data from OpenOA
+    description: metadata about the La Haute Borne turbine assets in the sample SCADA data from OpenOA
 
   - name: seed_la_haute_borne_data_sample
-    description: a subset of SCADA data from the OpenOA example data
+    description: sample SCADA data from the OpenOA La Haute Borne examples
 
   - name: seed_la_haute_borne_scada_tag_map
-    description: the manually-added tag map for standardizing tag names of the sample SCADA data from OpenOA
+    description: the manually-added tag map for standardizing La Haute Borne SCADA tag names to ENTR standard tag names
 
   - name: seed_la_haute_borne_merra2_sample
-    description: a subset of MERRA-2 reanalysis data set from the OpenOA example data
+    description: sample MERRA2 reanalysis data set from the OpenOA La Haute Borne examples
 
-  - name: seed_plant_data
-    description: a subset of plant data from the OpenOA example data
+  - name: seed_plant_data_sample
+    description: sample plant data from the OpenOA La Haute Borne examples
