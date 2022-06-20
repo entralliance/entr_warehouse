@@ -23,8 +23,7 @@ energy_union as (
         2378 as entr_tag_id, -- WTUR.SupWh
         date_time,
         tag_value / 6 as tag_value,
-        interval_n,
-        interval_units,
+        interval_s,
         'derived' as value_type,
         {{dbt_utils.concat(['value_units', "'h'"])}} value_units,
         {{dbt_utils.concat(['standard_units', "'h'"])}} standard_units
