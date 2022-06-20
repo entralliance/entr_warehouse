@@ -1,8 +1,8 @@
-﻿entr_tag_name,source_tag_name,interval_s,interval_n,interval_units,value_type,value_units
-WMETR.HorWdSpdU,u_ms,3600,1,hour,average,m/s
-WMETR.HorWdSpdV,v_ms,3600,1,hour,average,m/s
-WMETR.EnvTmp,temperature_K,3600,1,hour,average,K
-WMETR.EnvPres,surf_pres_Pa,3600,1,hour,average,Pa
-WMETR.HorWdSpd,windspeed_ms,3600,1,hour,average,m/s
-WMETR.HorWdDir,winddirection_deg,3600,1,hour,average,deg
-WMETR.AirDen,rho_kgm3,3600,1,hour,average,kg/m³
+﻿entr_tag_name,source_tag_name,interval_s,value_type,value_units
+WMETR.HorWdSpdU,u_ms,3600,average,m/s
+WMETR.HorWdSpdV,v_ms,3600,average,m/s
+WMETR.EnvTmp,temperature_K,3600,average,K
+WMETR.EnvPres,surf_pres_Pa,3600,average,Pa
+WMETR.HorWdSpd,windspeed_ms,3600,average,m/s
+WMETR.HorWdDir,winddirection_deg,3600,average,deg
+WMETR.AirDen,rho_kgm3,3600,average,kg/m³
