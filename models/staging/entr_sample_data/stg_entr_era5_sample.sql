@@ -23,8 +23,7 @@ select
     tag_dim.entr_tag_id,
     src_molten.date_time,
     src_molten.tag_value,
-    map.interval_n,
-    map.interval_units,
+    map.interval_s,
     map.value_type,
     map.value_units
 from src_molten
