@@ -18,16 +18,7 @@ energy_union as (
 
     union all
 
-    select
-        wind_turbine_id,
-        2378 as entr_tag_id, -- WTUR.SupWh
-        date_time,
-        {{w_to_wh('tag_value')}} as tag_value,
-        interval_s,
-        'derived' as value_type,
-        {{dbt_utils.concat(['value_units', "'h'"])}} value_units,
-        {{dbt_utils.concat(['standard_units', "'h'"])}} standard_units
-    from (select * from src where entr_tag_id = 2456)
+    {{entr_wtg_power_to_energy('src')}}
 )
 
 select
