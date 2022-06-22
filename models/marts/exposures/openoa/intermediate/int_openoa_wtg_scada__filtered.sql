@@ -22,7 +22,7 @@ energy_union as (
         wind_turbine_id,
         2378 as entr_tag_id, -- WTUR.SupWh
         date_time,
-        tag_value / 6 as tag_value,
+        {{w_to_wh('tag_value')}} as tag_value,
         interval_s,
         'derived' as value_type,
         {{dbt_utils.concat(['value_units', "'h'"])}} value_units,
