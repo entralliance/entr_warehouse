@@ -21,12 +21,24 @@ energy_union as (
     {{entr_wtg_power_to_energy('src')}}
 ),
 
-pitch_angle_unit_conversion as (
-    {{entr_single_tag_unit_conversion(
+unit_conversions as (
+    {{entr_multiple_tag_unit_conversions(
         relation_for_table_structure=ref('fct_entr_wtg_scada'),
-        entr_tag_id=1349,
-        operation='case when ((tag_value % 360) + 360) % 360 > 180 then ((tag_value % 360) + 360) % 360 - 360 else ((tag_value % 360) + 360) % 360 end',
-        new_units='deg',
+        entr_tag_ids=[
+            1349,
+            2456,
+            2378
+        ],
+        operations=[
+            'case when ((tag_value % 360) + 360) % 360 > 180 then ((tag_value % 360) + 360) % 360 - 360 else ((tag_value % 360) + 360) % 360 end',
+            'tag_value * 1000',
+            'tag_value * 1000'
+        ],
+        new_units=[
+            'deg',
+            'W',
+            'Wh'
+        ],
         cte='energy_union'
     )}}
 )
@@ -37,7 +49,7 @@ select
     wtg_dim.wind_turbine_name,
     tag_dim.entr_tag_name,
     cte.*
-from pitch_angle_unit_conversion cte
+from unit_conversions cte
 left join wtg_dim using(wind_turbine_id)
 left join plant_dim using(plant_id)
 left join tag_dim using(entr_tag_id)
