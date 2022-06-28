@@ -2,6 +2,7 @@
     180 + atan2({{u}}, {{v}}) * 180 / pi()
 {% endmacro %}
 
+{# TODO: refactor how columns get called - make dynamic based on relation #}
 {% macro entr_reanalysis_wind_direction_from_components(source_table=ref('fct_entr_reanalysis_data')) %}
     select
         2559 as entr_tag_id, -- WMETR.HORWdDir

@@ -2,6 +2,7 @@
     {{power}} * {{interval_s}} / 3600
 {% endmacro %}
 
+{# TODO: refactor how columns get called - make dynamic based on relation #}
 {% macro entr_wtg_power_to_energy(source_table=ref('fct_entr_wtg_scada')) %}
     select
         wind_turbine_id,
