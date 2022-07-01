@@ -1,0 +1,9 @@
+entr_tag_name,min,max
+WROT.BlPthAngVal,-180,180
+WTUR.W,-41000,2091000
+WMET.HorWdSpd,0,40
+WMET.HorWdDirRel,-180,180
+WMET.EnvTmp,-40,40
+WNAC.Dir,0,360
+WMET.HorWdDir,0,360
+WTUR.SupWh,-7000,349000
