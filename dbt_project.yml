@@ -48,18 +48,6 @@ models:
 seeds:
   entr_warehouse:
     openoa_example_data:
-      seed_la_haute_borne_data_sample:
-        +enabled: false
-        +column_types:
-          Wind_turbine_name: string
-          Date_time: string
-          Ba_avg: string
-          P_avg:  string
-          Ws_avg: string
-          Va_avg: string
-          Ot_avg: string
-          Ya_avg: string
-          Wa_avg: string
       seed_la_haute_borne_scada_tag_map:
         +column_types:
           tag_name: string
@@ -79,34 +67,5 @@ seeds:
           value_type: string
           data_type: string
           collector_type: string
-      seed_la_haute_borne_merra2_sample:
-        +enabled: false
-        +column_types:
-          datetime: string
-          u_ms: string
-          v_ms: string
-          temperature_K: string
-          surf_pres_Pa: string
-          windspeed_ms: string
-          winddirection_deg: string
-          rho_kgm3: string
-      seed_la_haute_borne_era5_sample:
-        +enabled: false
-        +column_types:
-          datetime: string
-          u_ms: string
-          v_ms: string
-          temperature_K: string
-          surf_pres_Pa: string
-          windspeed_ms: string
-          winddirection_deg: string
-          rho_kgm3: string
-      seed_plant_data_sample:
-        +enabled: false
-        +column_types:
-          time_utc: string
-          net_energy_kwh: string
-          availability_kwh: string
-          curtailment_kwh: string
       seed_la_haute_borne_asset_table:
         +enabled: true
