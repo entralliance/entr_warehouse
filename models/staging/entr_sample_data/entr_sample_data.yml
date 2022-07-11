@@ -6,28 +6,28 @@ sources:
   - name: entr_warehouse
     tables:
       - name: la_haute_borne_plant_data_sample
-        description: sample plant data
+        description: sample plant data from the OpenOA La Haute Borne examples
         external:
           location: '/home/jovyan/src/entr_warehouse/data/la_haute_borne_plant_data_sample.csv'
           using: csv
           options:
             header: 'true'
       - name: la_haute_borne_merra2_sample
-        description: sample MERRA-2 reanalysis data
+        description: sample MERRA2 reanalysis data set from the OpenOA La Haute Borne examples
         external:
           location: '/home/jovyan/src/entr_warehouse/data/la_haute_borne_merra2_sample.csv'
           using: csv
           options:
             header: 'true'
       - name: la_haute_borne_era5_sample
-        description: sample ERA5 reanalysis data
+        description: sample ERA5 reanalysis data set from the OpenOA La Haute Borne examples
         external:
           location: '/home/jovyan/src/entr_warehouse/data/la_haute_borne_era5_sample.csv'
           using: csv
           options:
             header: 'true'
       - name: la_haute_borne_scada_sample
-        description: sample WTG SCADA data
+        description: sample WTG SCADA data from the OpenOA La Haute Borne examples
         external:
           location: '/home/jovyan/src/entr_warehouse/data/la_haute_borne_scada_sample.csv'
           using: csv
