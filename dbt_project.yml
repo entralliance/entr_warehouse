@@ -47,14 +47,6 @@ models:
 
 seeds:
   entr_warehouse:
-    seed_la_haute_borne_scada_tag_map:
-      +column_types:
-        tag_name: string
-        tag_is_new: string
-        variable_name: string
-        variable_long_name: string
-        unit_long_name: string
-        comment: string
     seed_entr_tag_list:
       +column_types:
         entr_tag_id: integer
@@ -66,5 +58,3 @@ seeds:
         value_type: string
         data_type: string
         collector_type: string
-    seed_la_haute_borne_asset_table:
-      +enabled: true
