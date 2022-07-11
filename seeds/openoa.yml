@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: seed_entr_tag_list
+    description: IEC 61400-25-compliant ENTR standard wind turbine SCADA tags
+
+  - name: seed_la_haute_borne_asset_table
+    description: metadata about the La Haute Borne turbine assets in the sample SCADA data from OpenOA
+
+  - name: seed_la_haute_borne_scada_tag_map
+    description: the manually-added tag map for standardizing La Haute Borne SCADA tag names to ENTR standard tag names
