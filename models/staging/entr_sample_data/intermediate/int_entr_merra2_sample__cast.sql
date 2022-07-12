@@ -1,16 +1,4 @@
-{{
-    config(
-        materialized='table',
-        pre_hook="
-            create temp view tmp_entr_merra2_sample__read
-            using csv
-            options (
-                path 'warehouse/seeds/openoa_example_data/seed_la_haute_borne_merra2_sample.csv',
-                header 'true'
-            )
-        "
-    )
-}}
+{{ config(materialized='table') }}
 
 select
     1 as plant_id,
@@ -23,4 +11,4 @@ select
     cast( windspeed_ms as {{dbt_utils.type_numeric()}} ) as windspeed_ms,
     cast( winddirection_deg as {{dbt_utils.type_numeric()}} ) as winddirection_deg,
     cast( rho_kgm3 as {{dbt_utils.type_numeric()}} ) as rho_kgm3
-from tmp_entr_merra2_sample__read
+from {{ source('entr_warehouse', 'la_haute_borne_merra2_sample') }} 

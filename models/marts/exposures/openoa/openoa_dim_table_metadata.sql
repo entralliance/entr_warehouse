@@ -29,7 +29,7 @@
             '{{ mdl.openoa_alias }}' as table_name,
             {{jinja_list_to_sql(property_keys)}},
             'time_frequency' as property,
-            {{dbt_utils.concat(['round(interval_n)', "'-'", 'interval_units'])}} as value
+            interval_s as value
     from {{ mdl.model_name }}
 
     {% if not loop.last %}

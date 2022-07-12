@@ -26,8 +26,7 @@ select
     src_molten.date_time,
     {# src_molten.plant_tag_name, #}
     src_molten.tag_value,
-    map.interval_n,
-    map.interval_units,
+    map.interval_s,
     map.value_type,
     map.value_units
 from src_molten
