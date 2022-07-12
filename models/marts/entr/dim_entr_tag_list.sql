@@ -14,3 +14,4 @@ select
     cast(collector_type as {{dbt_utils.type_string()}}) as collector_type
 from
     {{ref('seed_entr_tag_list')}}
+where entr_tag_name not like '%_%'
