@@ -4,7 +4,7 @@
 mkdir ~/.dbt -p
 
 # copy profiles.yml to ~/.dbt - DEPENDS ON entr_warehouse MOUNT LOCATION
-cp ~/host/entr_warehouse/profiles.yml ~/.dbt/profiles.yml -i
+cp $DBT_PROJECT_PATH/profiles.yml ~/.dbt/profiles.yml -i
 
 # force Linux line endings in the file
 sed -i.bak 's/\r$//' ~/.dbt/profiles.yml
