@@ -2,15 +2,17 @@ Welcome to the ENTR Data Warehouse
 
 ## Background
 
-The ENTR Warehouse is a [dbt](https://www.getdbt.com/) project with the goal of providing a common ground of data (formats and transformation methods) upon which renewable energy industry users can build and share analytical applications. Once an industry user integrates his or her data into the generic fact and dimension tables in the ENTR model, he or she will then be able to utilize any associated applications that were built on top of the standard ENTR table schema. This decoupling of data preparation...........
+The ENTR Warehouse is a [dbt](https://www.getdbt.com/) project with the goal of providing a common ground of data (formats and transformation methods) upon which renewable energy industry users can build and share analytical applications. Once an industry user integrates his or her data into the generic fact and dimension tables in the ENTR model, he or she will then be able to utilize any associated applications that were built on top of the standard ENTR table schema.
 
 ## Getting Started
 
 The [ENTR Runtime](https://github.com/entralliance/entr_runtime) Docker image contains all of the dependencies needed for this tutorial including a standalone Apache Spark warehouse that can be used for running everything contained within the ENTR Warehouse dbt project. See the installation guide [here](https://entralliance.github.io/install.html) for how to build and set up the ENTR Runtime.
 
-[dbt docs](https://docs.getdbt.com/docs/building-a-dbt-project/documentation#overview) for the entr_warehouse dbt project can be found at https://entralliance.github.io/entr_warehouse. This interface is particularly useful for exploring and understanding the ENTR data model.
+## ENTR Data Model
 
-### How to Bring Your Own Data
+[dbt docs](https://docs.getdbt.com/docs/building-a-dbt-project/documentation#overview) for the entr_warehouse dbt project can be found at https://entralliance.github.io/entr_warehouse. This interface is useful for exploring and understanding the ENTR data model.
+
+## How to Bring Your Own Data
 
 *Note:* the following steps require at least basic experience with building models in dbt.
 
