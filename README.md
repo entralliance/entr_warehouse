@@ -35,7 +35,7 @@ Once the new file is set as a source, you will need to transform the data into t
 
 
 
-## Resources:
+## Resources
 - Learn more about dbt from the [dbt docs](https://docs.getdbt.com/docs/introduction)
 - Check out the [dbt Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
 - Join the [dbt Slack chat](http://slack.getdbt.com/) for live discussions and support
