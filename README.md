@@ -28,10 +28,19 @@ Once the new file is set as a source, you will need to transform the data into t
     * Assignment of dimensional keys, e.g. [here](https://github.com/entralliance/entr_warehouse/blob/e3eeb3e693349a2a6297274d686ef7f884a5bc18/models/staging/entr_sample_data/intermediate/int_entr_era5_sample__cast.sql#L4-L5)
 * For the assignment of dimensional foreign keys, which is required for all ENTR Warehouse tables in their current state, the ENTR dimensions must be extended. For example, if the data you're preparing is not from La Haute Borne, a new plant must be added as a record within the [seeds/seed_asset_plant](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_asset_plant.csv) dbt CSV seed file in order for the transformations to run properly, and the same goes for the other dimensional data assignments.
     * Note: not every field within the dimensions will be useful or used in analyses or transformations, so it may be ok to leave some blank to start depending on your use case
-* In addition to extending the seeded ENTR dimensions, it may be useful to seed mapping files that are specific to a source to facilitate the translation of data into ENTR vernacular; we expect this to most commonly be done for mapping identifiers in the data you bring to ENTR tag IDs within the ENTR dimension
+* In addition to extending the seeded ENTR dimensions, it may be useful or necessary to seed mapping files that are specific to a source to facilitate the translation of data into ENTR vernacular; we expect this to most commonly be done for mapping identifiers in the data you bring to ENTR tag IDs within the ENTR dimension
+    * For example, the following files map the example 4 La Haute Borne example data sets' fields to ENTR tags. These tables are used to join on the ENTR tag IDs to the appropriate fields once the source table has been reshaped/unpivoted to have the original column names in a field
+        * [seed_la_haute_borne_era5_tag_map](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_la_haute_borne_era5_tag_map.csv)
+        * [seed_la_haute_borne_merra2_tag_map](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_la_haute_borne_merra2_tag_map.csv)
+        * [seed_la_haute_borne_scada_tag_map](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_la_haute_borne_scada_tag_map.csv)
+        * [seed_plant_data_tag_map](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_plant_data_tag_map.csv)
     * Note: we don't yet have standards defined for creating new ENTR tags, but that functionality will be coming soon
-* Once all metadata about the new data from the newly loaded file is available, the last staging step is transforming the data into the relevant ENTR generic fact table schema, which can be found in this project's dbt docs, e.g. [here](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_wtg_scada) for the generic wind turbine SCADA data fact table.
-* After unioning on the new source into the generic fact table, your data will be ready for consumption by ENTR-based applications.
+* Once all metadata about the new data from the newly loaded file is available, the last staging step is transforming the data into the relevant ENTR generic fact table schema, which can be found in this project's dbt docs, e.g. [here](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_wtg_scada) for the generic wind turbine SCADA data fact table. The current generic ENTR fact tables are as follows:
+    * [fct_entr_plant_data](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_plant_data)
+    * [fct_entr_wtg_scada](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_wtg_scada)
+    * [fct_entr_reanalysis_data](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_reanalysis_data)
+        * **Note**: this model is a good example showing 2 staged data sets (the ERA5 and MERRA2 La Haute Borne reanalysis data) flowing into the same generic ENTR fact table for guidance in the following step
+* Once a staging model has been created for your new source data that matches the associated generic ENTR fact table schema, you will just need to union that new staging model with the generic ENTR fact table ready to make the new data ready for consumption by ENTR-based applications.
 
 
 
