@@ -2561,3 +2561,6 @@ entr_tag_id,entr_tag_name,logical_node,sensor_name,presentation_name,standard_un
 2560,WMETR.EnvTmp,WMETR.,EnvTmp,Reanalysis ambient temperature,°C,,,
 2561,WMETR.EnvPres,WMETR.,EnvPres,Reanalysis barometric pressure,bar,,,
 2562,WMETR.AirDen,WMETR.,AirDen,Reanalysis air density,kg/m³,,,
+2563,IAVL.ExtPwrDnW,IAVL.,ExtPwrDnW,Plant-level lost power due to curtailment,W,,,
+2564,WAPC.PsblWh,WAPC.,PsblWh,UPC Possible Active Energy,Wh,,,
+2565,IAVL.CurtailmentDispatchSignal,IAVL.,CurtailmentDispatchSignal,Curtailment dispatch signal from balancing entity,,,,
