@@ -20,7 +20,7 @@ The [ENTR Runtime](https://github.com/entralliance/entr_runtime) Docker image co
 The ENTR Runtime image contains pre-built models defined by the ENTR Warehouse based on open-source example data; however, for users wishing to bring their own data, the ENTR Warehouse supports setup of new sources from CSV and other Spark-readable file types by leveraging the [dbt-external-tables](https://github.com/dbt-labs/dbt-external-tables/tree/main) package from dbt-labs.
 * With a clone of this entr_warehouse project mounted to the ENTR Runtime, drop a copy of the file you'd like to process through the ENTR data model into the `data/` directory
 * Within the `models/staging/` directory, write out the source definition for the new file within a YML file in the staging directory using the [dbt-external-tables](https://github.com/dbt-labs/dbt-external-tables/tree/main) guides as needed
-    * Note: the new files can be added to any YML file in the `models` folder but must be mapped under the `entr_warehouse`:
+    * **Note**: the new files can be added to any YML file in the `models` folder but must be mapped under the `entr_warehouse`:
     ```yml
     sources:
       - name: entr_warehouse
@@ -39,13 +39,14 @@ The ENTR Runtime image contains pre-built models defined by the ENTR Warehouse b
 ### Transforming New Data to ENTR Standard Formats
 Once the new file is set as a source, you will need to transform the data into the standard ENTR fact table format - to build the dbt transformations, you'll need to define and map the dimensional components of the new data utilizing the standard ENTR dimension table formats.
 
+#### 1. (Optional) Create an Intermediate Model to Facilitate Table Reshaping
 * You'll likely notice that the initial step in the transformation of the example sources (files) is just performing type casting (see the examples within the models/staging/entr_sample_data/intermediate directory), e.g. the [int_entr_scada_sample__cast](https://github.com/entralliance/entr_warehouse/blob/main/models/staging/entr_sample_data/intermediate/int_entr_scada_sample__cast.sql) model, which just performs type casting on the raw data as a preliminary step
     * Prepares the data for reshaping/pivoting; we expect this will be a frequently necessary staging step for source files with tags corresponding to data types
     * Assignment of dimensional keys, e.g. [here](https://github.com/entralliance/entr_warehouse/blob/e3eeb3e693349a2a6297274d686ef7f884a5bc18/models/staging/entr_sample_data/intermediate/int_entr_era5_sample__cast.sql#L4-L5) - see below for further detail
 
 #### 2. Establish Link Between New Facts and Dimensions
 * For the assignment of dimensional foreign keys, which is required for all ENTR Warehouse fact tables in their current state, the ENTR dimensions must be extended. For example, if the data you're preparing is not from La Haute Borne, a new plant must be added as a record within the [seeds/seed_asset_plant](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_asset_plant.csv) dbt CSV seed file in order for the transformations to run properly, and the same goes for the other dimensional data assignments.
-    * Note: not every field within the dimensions will be useful or used in analyses or transformations, so it may be ok to leave some blank to start depending on your use case
+    * **Note**: not every field within the dimensions will be useful or used in analyses or transformations, so it may be ok to leave some blank to start depending on your use case
 * In addition to extending the seeded ENTR dimensions, it may be useful or necessary to seed mapping files that are specific to a source to facilitate the translation of data into ENTR vernacular; we expect this to most commonly be done for mapping identifiers in the data you bring to ENTR tag IDs within the ENTR dimension
     * For example, the following files map the example 4 La Haute Borne example data sets' fields to ENTR tags. These tables are used to join on the ENTR tag IDs to the appropriate fields once the source table has been reshaped/unpivoted to have the original column names in a field
         * [seed_la_haute_borne_era5_tag_map](https://github.com/entralliance/entr_warehouse/blob/main/seeds/seed_la_haute_borne_era5_tag_map.csv)
