@@ -1,4 +1,4 @@
-{% set src_model = 'int_openoa_plant_curtail_avail_data__filtered' %}
+{% set src_model = 'int_openoa_plant_data__resampled' %}
 
 with
     src as (select * from {{ ref(src_model) }})
@@ -17,4 +17,5 @@ select
             quote_identifiers = true) 
     }}
 from src
+where entr_tag_id in (2553, 2555)
 {{ dbt_utils.group_by(n=3) }}
