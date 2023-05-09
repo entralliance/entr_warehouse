@@ -44,17 +44,3 @@ models:
   entr_warehouse:
     marts:
       +materialized: view
-
-seeds:
-  entr_warehouse:
-    seed_entr_tag_list:
-      +column_types:
-        entr_tag_id: integer
-        entr_tag_name: string
-        logical_node: string
-        sensor_name: string
-        presentation_name: string
-        si_unit: string
-        value_type: string
-        data_type: string
-        collector_type: string
