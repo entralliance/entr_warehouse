@@ -1,2 +1,2 @@
-plant_id,plant_name,latitude,longitude,plant_capacity,number_of_turbines,turbine_capacity
-1,La Haute Borne,48.452,5.588,8.2,4,2.05
+asset_id,asset_type,asset_name,latitude,longitude,plant_capacity,number_of_turbines,turbine_capacity
+1,plant,La Haute Borne,48.452,5.588,8.2,4,2.05
