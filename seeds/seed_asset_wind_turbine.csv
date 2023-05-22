@@ -1,5 +1,5 @@
-plant_id,wind_turbine_id,wind_turbine_name,latitude,longitude,elevation,hub_height,rotor_diameter,rated_power,manufacturer,model
-1,1,R80711,48.4569,5.5847,411,80,82,2050,Senvion,MM82
-1,2,R80721,48.4497,5.5869,411,80,82,2050,Senvion,MM82
-1,3,R80736,48.4461,5.5925,411,80,82,2050,Senvion,MM82
-1,4,R80790,48.4536,5.5875,411,80,82,2050,Senvion,MM82
+asset_id,asset_type,asset_name,plant_id,latitude,longitude,elevation,hub_height,rotor_diameter,rated_power,manufacturer,model
+100001,wtg,R80711,1,48.4569,5.5847,411,80,82,2050,Senvion,MM82
+100002,wtg,R80721,1,48.4497,5.5869,411,80,82,2050,Senvion,MM82
+100003,wtg,R80736,1,48.4461,5.5925,411,80,82,2050,Senvion,MM82
+100004,wtg,R80790,1,48.4536,5.5875,411,80,82,2050,Senvion,MM82

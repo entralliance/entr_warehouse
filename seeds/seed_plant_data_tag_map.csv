@@ -1,4 +1,4 @@
-entr_tag_name,source_tag_name,interval_s,value_type,value_units
-MMTR.SupWh,net_energy_kwh,600,sum,kWh
-IAVL.DnWh,availability_kwh,600,sum,kWh
-IAVL.ExtPwrDnWh,curtailment_kwh,600,sum,kWh
+entr_tag_name,tag_subtype_id,source_tag_name,interval_s,value_type,value_units
+MMTR.SupWh,0,net_energy_kwh,600,sum,kWh
+IAVL.DnWh,0,availability_kwh,600,sum,kWh
+IAVL.ExtPwrDnWh,0,curtailment_kwh,600,sum,kWh

@@ -36,19 +36,49 @@ sources:
 models:
 
   - name: stg_entr_plant_sample
-    description: staging model for the sample La Haute Borne plant-level data from ENTR
+    description: example staging model for the sample La Haute Borne plant-level data conformant with the standard ENTR time series fact table structure
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - plant_id
+            - asset_id
             - entr_tag_id
+            - tag_subtype_id
             - date_time
+            - interval_s
+            - value_type
 
   - name: stg_entr_scada_sample
-    description: staging model for the sample La Haute Borne wind turbine SCADA data from ENTR
+    description: example staging model for the sample La Haute Borne wind turbine SCADA data conformant with the standard ENTR time series fact table structure
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - wind_turbine_id
+            - asset_id
             - entr_tag_id
+            - tag_subtype_id
             - date_time
+            - interval_s
+            - value_type
+
+  - name: stg_entr_era5_sample
+    description: example staging model for the sample La Haute Borne ERA5 reanalysis data conformant with the standard ENTR time series fact table structure
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - asset_id
+            - entr_tag_id
+            - tag_subtype_id
+            - date_time
+            - interval_s
+            - value_type
+
+  - name: stg_entr_merra2_sample
+    description: example staging model for the sample La Haute Borne MERRA-2 reanalysis data conformant with the standard ENTR time series fact table structure
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - asset_id
+            - entr_tag_id
+            - tag_subtype_id
+            - date_time
+            - interval_s
+            - value_type
