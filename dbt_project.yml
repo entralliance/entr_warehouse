@@ -45,6 +45,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  entr_warehouse:
-    marts:
-      +materialized: view
+  openoa:
+    generic_openoa_tables:
+      dim_asset_wind_turbine:
+        +materialized: table
+      dim_asset_wind_plant:
+        +materialized: table
+      dim_asset_wind_turbine:
+        +materialized: table
+    exposures:
+      openoa_curtailment_and_availability:
+        +materialized: table
+      openoa_reanalysis:
+        +materialized: table
+      openoa_revenue_meter:
+        +materialized: table
+      openoa_wtg_scada:
+        +materialized: table
