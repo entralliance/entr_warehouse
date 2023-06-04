@@ -2,7 +2,7 @@ packages:
   - package: dbt-labs/spark_utils
     version: [">=0.3.0", "<0.4.0"]
   - git: "https://github.com/entralliance/dbt-openoa.git"
-    revision: "0.0.3"
+    revision: 0.0.4
   - package: calogica/dbt_date
     version: [">=0.7.0", "<0.8.0"]
   - package: dbt-labs/dbt_external_tables
