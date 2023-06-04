@@ -1,0 +1,35 @@
+# ensure package version doesn't match target version in PRs targeting main 
+name: version-conflict-check
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install yq
+        run: sudo add-apt-repository ppa:rmescandon/yq && sudo apt-get install yq -y
+
+      - name: Check version
+        run: |
+          git show remotes/origin/$GITHUB_HEAD_REF:./dbt_project.yml > __current_dbt_project.yml
+          git show remotes/origin/$GITHUB_BASE_REF:./dbt_project.yml > __target_dbt_project.yml
+          CURRENT_VERSION=$(yq eval '.version' __current_dbt_project.yml)
+          TARGET_VERSION=$(yq eval '.version' __target_dbt_project.yml)
+          if [ "$CURRENT_VERSION" == "$TARGET_VERSION" ]; then
+            echo "Error: The current version ($CURRENT_VERSION) matches the target version ($TARGET_VERSION)"
+            exit 1
+          fi
+          echo "Package version in target branch ($TARGET_VERSION) to be updated to ($CURRENT_VERSION)"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
