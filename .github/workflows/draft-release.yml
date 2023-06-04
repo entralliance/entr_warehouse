@@ -1,0 +1,39 @@
+name: draft-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install yq
+        run: sudo add-apt-repository ppa:rmescandon/yq && sudo apt-get install yq -y
+
+      - name: Get release tag
+        run: |
+          CURRENT_VERSION=$(yq eval '.version' dbt_project.yml)
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> "$GITHUB_ENV"
+
+      - name: Create (Draft) Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ env.CURRENT_VERSION }}
+          release_name: ${{ github.event.repository.name }} v${{ env.CURRENT_VERSION }}
+          body: |
+            ## New features
+
+            ## Fixes
+
+            ## Quality of Life
+
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

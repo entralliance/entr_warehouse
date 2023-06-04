@@ -3,7 +3,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'entr_warehouse'
-version: '0.1.0'
+version: '0.0.1'
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 config-version: 2
 
@@ -17,7 +17,11 @@ dispatch:
       search_order: ['spark_utils', 'dbt_utils']
 
 vars:
-    'dbt_date:time_zone': 'Etc/UTC'
+  'dbt_date:time_zone': 'Etc/UTC'
+  entr:
+    dim_entr_asset_models: [seed_asset_plant, seed_asset_wind_turbine]
+    fct_entr_time_series_models: [stg_entr_era5_sample, stg_entr_merra2_sample, stg_entr_plant_sample, stg_entr_scada_sample]
+
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -41,20 +45,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  entr_warehouse:
-    marts:
-      +materialized: view
-
-seeds:
-  entr_warehouse:
-    seed_entr_tag_list:
-      +column_types:
-        entr_tag_id: integer
-        entr_tag_name: string
-        logical_node: string
-        sensor_name: string
-        presentation_name: string
-        si_unit: string
-        value_type: string
-        data_type: string
-        collector_type: string
+  openoa:
+    generic_openoa_tables:
+      dim_asset_wind_turbine:
+        +materialized: table
+      dim_asset_wind_plant:
+        +materialized: table
+      dim_asset_wind_turbine:
+        +materialized: table
+    exposures:
+      openoa_curtailment_and_availability:
+        +materialized: table
+      openoa_reanalysis:
+        +materialized: table
+      openoa_revenue_meter:
+        +materialized: table
+      openoa_wtg_scada:
+        +materialized: table
