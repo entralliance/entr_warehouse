@@ -16,7 +16,7 @@ The [ENTR Runtime](https://github.com/entralliance/entr_runtime) Docker image co
 
 *Note:* the following steps require at least basic experience with building models in dbt.
 
-### Loading New Data from Files
+## Loading New Data from Files
 
 The ENTR Runtime image contains pre-built models defined by the ENTR Warehouse based on open-source example data; however, for users wishing to bring their own data, the ENTR Warehouse supports setup of new sources from CSV and other Spark-readable file types by leveraging the [dbt-external-tables](https://github.com/dbt-labs/dbt-external-tables/tree/main) package from dbt-labs.
 * With a clone of this entr_warehouse project mounted to the ENTR Runtime, drop a copy of the file you'd like to process through the ENTR data model into the `data/` directory
