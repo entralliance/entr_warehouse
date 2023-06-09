@@ -22,18 +22,20 @@ The ENTR Runtime image contains pre-built models defined by the ENTR Warehouse b
 * With a clone of this entr_warehouse project mounted to the ENTR Runtime, drop a copy of the file you'd like to process through the ENTR data model into the `data/` directory
 * Within the `models/staging/` directory, write out the source definition for the new file within a YML file in the staging directory using the [dbt-external-tables](https://github.com/dbt-labs/dbt-external-tables/tree/main) guides as needed
     * **Note**: the new files can be added to any YML file in the `models` folder but must be mapped under the `entr_warehouse`:
-    ```yml
-    sources:
-      - name: entr_warehouse
-        tables:
-          - name: <new table name>
-            description: <description of new source table>
-            external:
-              location: '<path to data file withing the container>' # e.g. "/home/jovyan/src/entr_warehouse/data/la_haute_borne_plant_data_sample.csv" - this depends on where you've mounted the entr_warehouse dir in the container
-              using: csv # specify for different file types accordingly
-              options:
-                header: 'true' # optional but used with the ENTR sample data
-    ```
+
+```yml
+sources:
+  - name: entr_warehouse
+    tables:
+      - name: <new table name>
+        description: <description of new source table>
+        external:
+          location: '<path to data file withing the container>' # e.g. "/home/jovyan/src/entr_warehouse/data/la_haute_borne_plant_data_sample.csv" - this depends on where you've mounted the entr_warehouse dir in the container
+          using: csv # specify for different file types accordingly
+          options:
+            header: 'true' # optional but used with the ENTR sample data
+```
+
 * Run `dbt run-operation stage_external_sources` to make the file available as a table in the ENTR runtime Spark warehouse and as a source relation in dbt from which you can start building further transformations
 * See the four files within the `data/` folder and their corresponding source definitions within the [entr_sample_data.yml file](https://github.com/entralliance/entr_warehouse/blob/main/models/staging/entr_sample_data/entr_sample_data.yml) for examples
 
