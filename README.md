@@ -37,6 +37,8 @@ The ENTR Runtime image contains pre-built models defined by the ENTR Warehouse b
 * Run `dbt run-operation stage_external_sources` to make the file available as a table in the ENTR runtime Spark warehouse and as a source relation in dbt from which you can start building further transformations
 * See the four files within the `data/` folder and their corresponding source definitions within the [entr_sample_data.yml file](https://github.com/entralliance/entr_warehouse/blob/main/models/staging/entr_sample_data/entr_sample_data.yml) for examples
 
+**TODO: Replace outdated docs!!!**
+<!-- 
 ### Transforming New Data to ENTR Standard Formats
 
 Once the new file is set as a source, you will need to transform the data into the standard ENTR fact table format - to build the dbt transformations, you'll need to define and map the dimensional components of the new data utilizing the standard ENTR dimension table formats.
@@ -69,7 +71,7 @@ Once the new file is set as a source, you will need to transform the data into t
 
 #### 4. Add Newly Staged Data to ENTR Fact Table
 
-Once a staging model has been created for your new source data that matches the associated generic ENTR fact table schema, you will just need to union that new staging model with the generic ENTR fact table to make the new data ready for consumption by ENTR-based applications. The [fct_entr_reanalysis_data](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_reanalysis_data) shows how multiple staging models are combined in the generic ENTR reanalysis model.
+Once a staging model has been created for your new source data that matches the associated generic ENTR fact table schema, you will just need to union that new staging model with the generic ENTR fact table to make the new data ready for consumption by ENTR-based applications. The [fct_entr_reanalysis_data](https://entralliance.github.io/entr_warehouse/#!/model/model.entr_warehouse.fct_entr_reanalysis_data) shows how multiple staging models are combined in the generic ENTR reanalysis model. -->
 
 
 ## General dbt Learning Resources
