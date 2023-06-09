@@ -23,7 +23,7 @@ The ENTR Runtime image contains pre-built models defined by the ENTR Warehouse b
 * Within the `models/staging/` directory, write out the source definition for the new file within a YML file in the staging directory using the [dbt-external-tables](https://github.com/dbt-labs/dbt-external-tables/tree/main) guides as needed
     * **Note**: the new files can be added to any YML file in the `models` folder but must be mapped under the `entr_warehouse`:
 
-```yml
+```yaml
 sources:
   - name: entr_warehouse
     tables:
